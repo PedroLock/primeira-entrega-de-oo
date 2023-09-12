@@ -1,0 +1,74 @@
+classe quadrado
+
+   atributo basequadrado
+   atributo alturaquadrado
+   
+    areaquadrado = basequadrado * alturaquadrado
+fim classe
+
+
+clase circulo
+
+    atributo raiocirculo
+    
+    areacirculo = 3.14 * raiocirculo * raiocirculo
+fim classe
+
+
+clase triangulo
+
+    atributo basetriangulo
+    atributo alturatriangulo
+     
+    areatriangulo = basetriangulo * alturatriangulo / 2
+fim classe
+
+
+funcao principal()
+    
+  inteiro opcao
+    
+    imprimir("Bem-vindo!")
+    imprimir("Escolha uma opção:")
+    imprimir("1. Calcular área de um quadrado")
+    imprimir("2. Calcular área de um círculo")
+    imprimir("3. Calcular área de um triangulo")
+    imprimir("4. Sair")
+    
+    ler opcao
+    
+    se opcao == 1 entao
+        // Calcular a área de um quadrado
+            imprimir("Digite a base do quadrado:")
+            ler basequadrado
+            imprimir("Digite a altura do quadrado:")
+            ler alturaquadrado
+            areaquadrado = basequadrado * alturaquadrado
+            imprimir("A área do quadrado é: " areaquadrado)
+            
+    senão se opcao == 2 então
+        // Calcular a área de um círculo
+            imprimir("Digite o raio do círculo:")
+            ler raiocirculo
+            areacirculo = 3.14 * raiocirculo * raiocirculo 
+            imprimir("A área do círculo é: " areacirculo)
+            
+            
+    senão se opcao == 3 então
+        // Calcular a área de um triangulo
+            imprimir("Digite a base do triangulo:")
+            ler basetriangulo
+            imprimir("Digite a altura do triangulo:")
+            ler alturatriangulo
+            areatriangulo = basetriangulo * alturatriangulo / 2
+            imprimir("A área do triangulo é: " areatriangulo)
+            
+            
+    senão se opcao == 4 então
+        // Sair do programa
+            imprimir("Obrigado, volte sempre!")
+        senão
+            imprimir("Opção inválida. Por favor, escolha 1, 2, 3 ou 4.")
+           até que opcao == 4
+    
+fim função
