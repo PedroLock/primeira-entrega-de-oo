@@ -1,0 +1,90 @@
+import math
+
+class Shape:
+    def _init_(self, shape_type):
+        self.shape_type = shape_type
+
+    def calculate_area(self):
+        pass
+
+    def calculate_perimeter(self):
+        pass
+
+class Circle(Shape):
+    def _init_(self, radius):
+        super()._init_('Circle')
+        self.radius = radius
+
+    def calculate_area(self):
+        return math.pi * self.radius ** 2
+
+    def calculate_perimeter(self):
+        return 2 * math.pi * self.radius
+
+class Rectangle(Shape):
+    def _init_(self, length, width):
+        super()._init_('Rectangle')
+        self.length = length
+        self.width = width
+
+    def calculate_area(self):
+        return self.length * self.width
+
+    def calculate_perimeter(self):
+        return 2 * (self.length + self.width)
+
+class Triangle(Shape):
+    def _init_(self, base, height):
+        super()._init_('Triangle')
+        self.base = base
+        self.height = height
+
+    def calculate_area(self):
+        return (self.base * self.height) / 2
+
+def main():
+    shape_list = []
+
+    while True:
+        print("\nMenu:")
+        print("1. Inserir nova forma")
+        print("2. Calcular área e perímetro")
+        print("3. Sair")
+
+        choice = input("Escolha uma opção: ")
+
+        if choice == '1':
+            shape_type = input("Informe o tipo da forma (círculo, retângulo, triângulo): ")
+            if shape_type == 'círculo':
+                radius = float(input("Informe o raio do círculo: "))
+                shape = Circle(radius)
+            elif shape_type == 'retângulo':
+                length = float(input("Informe o comprimento do retângulo: "))
+                width = float(input("Informe a largura do retângulo: "))
+                shape = Rectangle(length, width)
+            elif shape_type == 'triângulo':
+                base = float(input("Informe a base do triângulo: "))
+                height = float(input("Informe a altura do triângulo: "))
+                shape = Triangle(base, height)
+            else:
+                print("Tipo de forma inválido.")
+                continue
+
+            shape_list.append(shape)
+            print(f"{shape_type} adicionado com sucesso.")
+
+        elif choice == '2':
+            for shape in shape_list:
+                print(f"Tipo: {shape.shape_type}")
+                print(f"Área: {shape.calculate_area()}")
+                print(f"Perímetro: {shape.calculate_perimeter()}")
+
+        elif choice == '3':
+            print("Saindo do programa.")
+            break
+
+        else:
+            print("Opção inválida. Escolha novamente.")
+
+if _name_ == "_main_":
+    main()
